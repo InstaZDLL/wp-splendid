@@ -1,0 +1,15 @@
+.codex
+
+# Secrets — ne jamais commiter
+.env
+
+# Données persistées
+db/*
+!db/my.cnf
+redis-data/*
+
+# WordPress runtime (core, uploads, cache)
+wordpress/
+
+# podman-compose
+.podman-compose-lock
