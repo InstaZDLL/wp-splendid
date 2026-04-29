@@ -94,6 +94,10 @@ podman compose exec db mysql -u${DB_USER} -p ${DB_NAME}
 
 # Stop without deleting data
 podman compose down
+
+# Wipe all runtime data (DB, Redis snapshot, WordPress files)
+scripts/cleanup.sh
+scripts/cleanup.sh -y     # skip confirmation
 ```
 
 ---
@@ -106,6 +110,8 @@ podman compose down
 ├── .env.example             # Environment variable template
 ├── assets/
 │   └── logo.svg             # Project logo
+├── scripts/
+│   └── cleanup.sh           # Stop the stack and wipe runtime data
 ├── nginx/
 │   ├── default.conf         # Virtual host (FastCGI, W3TC cache, rate-limit)
 │   └── header.conf          # Security headers (CSP, HSTS, frame, …)
